@@ -1,14 +1,11 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# Using prezto to customise Zsh.
 
-# Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
 source ~/.bash_aliases
+
+# Copied a hacked version of agnoster for oh-my-zsh; it's compact and
+source "${HOME}/.zprezto/prompt.zsh"
+export PS1="%{%f%b%k%}$(build_prompt)"
