@@ -60,7 +60,12 @@ prompt_context() {
     if [[ -n "$SSH_CLIENT" ]]; then
         prompt_segment gray default "%(!.%{%F{yellow}%}.)@%m"
     fi
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$(date +%Y-%m-%d-%H:%M)"
+    #prompt_segment black default "%(!.%{%F{yellow}%}.)\$(date +%Y-%m-%d-%H:%M)"
+}
+
+prompt_time(){
+    prompt_segment black default "%(!.%{%F{yellow}%}.)%D %*"
+
 }
 
 # Git: branch/detached head, dirty status
@@ -133,6 +138,7 @@ build_prompt() {
     prompt_status
     prompt_virtualenv
     prompt_context
+    prompt_time
     prompt_dir
     prompt_git
     prompt_end
